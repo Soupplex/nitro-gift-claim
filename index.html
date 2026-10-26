@@ -130,7 +130,52 @@
       document.documentElement.requestFullscreen().catch(() => {});
     }
     screamAudio.play().catch(() => {});
-    document.body.innerHTML = `<img src="${IMAGE_URL}" style="width:100vw;height:100vh;object-fit:cover;display:block;margin:0;background-color:black;">`;
+
+    document.body.innerHTML = `
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: black;
+        }
+        @keyframes strobeJitter {
+          0% {
+            filter: invert(0%) contrast(120%);
+            transform: scale(1) translate(0px, 0px);
+          }
+          20% {
+            filter: invert(100%) contrast(300%) brightness(150%);
+            transform: scale(1.12) translate(-15px, 10px);
+          }
+          40% {
+            filter: invert(0%) contrast(150%);
+            transform: scale(0.95) translate(12px, -8px);
+          }
+          60% {
+            filter: invert(100%) contrast(250%) brightness(120%);
+            transform: scale(1.18) translate(-8px, -14px);
+          }
+          80% {
+            filter: invert(0%) contrast(200%);
+            transform: scale(1.05) translate(14px, 12px);
+          }
+          100% {
+            filter: invert(100%) contrast(300%);
+            transform: scale(1) translate(0px, 0px);
+          }
+        }
+        .screamer-payload {
+          width: 100vw;
+          height: 100vh;
+          object-fit: cover;
+          display: block;
+          animation: strobeJitter 0.06s infinite linear;
+          pointer-events: none;
+        }
+      </style>
+      <img src="${IMAGE_URL}" class="screamer-payload">
+    `;
   });
 </script>
 </body></html>
