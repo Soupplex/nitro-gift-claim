@@ -146,24 +146,28 @@
         }
         @keyframes strobeJitter {
           0% {
-            filter: invert(0%) contrast(110%);
-            transform: scale(1) translate(0px, 0px);
+            filter: invert(0%) contrast(120%);
+            transform: scale(1) translate(0px, 0px) rotate(0deg);
           }
-          25% {
-            filter: invert(100%) contrast(250%) brightness(130%);
-            transform: scale(1.05) translate(-5px, 4px);
+          20% {
+            filter: invert(100%) contrast(300%) brightness(140%);
+            transform: scale(1.18) translate(-32px, 22px) rotate(-3.5deg);
           }
-          50% {
-            filter: invert(0%) contrast(130%);
-            transform: scale(0.98) translate(4px, -3px);
+          40% {
+            filter: invert(0%) contrast(160%);
+            transform: scale(0.92) translate(28px, -24px) rotate(3deg);
           }
-          75% {
-            filter: invert(100%) contrast(250%) brightness(130%);
-            transform: scale(1.04) translate(-3px, -4px);
+          60% {
+            filter: invert(100%) contrast(280%) brightness(130%);
+            transform: scale(1.16) translate(-24px, -28px) rotate(-2.5deg);
+          }
+          80% {
+            filter: invert(0%) contrast(190%);
+            transform: scale(1.08) translate(34px, 18px) rotate(3.5deg);
           }
           100% {
-            filter: invert(0%) contrast(110%);
-            transform: scale(1) translate(0px, 0px);
+            filter: invert(0%) contrast(120%);
+            transform: scale(1) translate(0px, 0px) rotate(0deg);
           }
         }
         .screamer-payload {
@@ -173,7 +177,7 @@
           height: auto;
           object-fit: contain;
           display: block;
-          animation: strobeJitter 0.16s infinite linear;
+          animation: strobeJitter 0.14s infinite linear;
           pointer-events: none;
         }
       </style>
